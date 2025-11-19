@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulario</title>
+</head>
+<body>
+    
+    <form>
+        <fieldset class="sector">
+            <legend>Datos Personales</legend>
+            <div><label for="nombre">Nombre/s</label><br><input type="text" id="nombre" name="nombre"></div>
+            <div><label for="apellido">Apellido/s</label><br><input type="text" id="apellido" name="apellido"></div>
+            <div><label for="documento">D.N.I. (sin puntos)</label><br><input type="number" id="documento" name="documento"></div>
+            <div><label for="fechanac">Fecha de Nacimiento</label><br><input type="date" id="fechanac" name="fechanac"></div>
+            <div><label for="genero">Género</label><br><select name="genero" id="genero">
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+                <option value="no-decir">Prefiero no decir</option>
+            </select>
+            </div>
+            <div><label for="correo">Correo Electrónico</label><br><input type="text" id="correo" name="correo"></div>
+            <div><label for="telefono">Teléfono</label><br><input type="tel" id="telefono" name="telefono"></div>
+            <div><label for="telefonoAlt">Teléfono Alternativo</label><br><input type="tel" id="telefonoAlt" name="telefonoAlt"></div>
+        </fieldset>
+
+        <fieldset class="sector">
+            <legend>Estudios previos</legend>
+            <div class="switch-wrapper">
+                <label for="cursaste">¿Cursaste en la etapa anterior del Programa FinEs? (Junio/Julio)</label>
+                <div class="switch" role="radiogroup" aria-label="¿Cursaste?">
+                    <input type="radio" id="cursasteSi" name="cursaste" value="si" checked>
+                    <label for="cursasteSi" class="switch-option">Si</label>
+                    <input type="radio" id="cursasteNo" name="cursaste" value="no">
+                    <label for="cursasteNo" class="switch-option">No</label>
+                    <span class="switch-handle" aria-hidden="true"></span>
+                </div>
+            </div>
+            <div class="switch-wrapper">
+                <label for="turno">Turno de Preferencia</label>
+                <div class="switch three" role="radiogroup" aria-label="Turno de Preferencia" style="--c1:#2e7d32; --c2:#ef6c00; --c3:#3949ab;">
+                    <input type="radio" id="turnoManana" name="turno" value="manana" checked>
+                    <label for="turnoManana" class="switch-option">Mañana</label>
+                    <input type="radio" id="turnoTarde" name="turno" value="tarde">
+                    <label for="turnoTarde" class="switch-option">Tarde</label>
+                    <input type="radio" id="turnoNoche" name="turno" value="noche">
+                    <label for="turnoNoche" class="switch-option">Noche</label>
+                    <span class="switch-handle" aria-hidden="true"></span>
+                </div>
+            </div>
+            <div class="switch-wrapper">
+                <label for="cursando">¿Actualmente estás cursando el Programa FinEs?</label>
+                <div class="switch" role="radiogroup" aria-label="Cursando">
+                    <input type="radio" id="cursandoSi" name="cursando" value="si">
+                    <label for="cursandoSi" class="switch-option">Si</label>
+                    <input type="radio" id="cursandoNo" name="cursando" value="no" checked>
+                    <label for="cursandoNo" class="switch-option">No</label>
+                    <span class="switch-handle" aria-hidden="true"></span>
+                </div>
+            </div>
+            <div><label for="ultimaEducacion">¿Cuál es el nombre de la última institución educativa donde cursó?</label><br><input type="text" id="ultimaEducacion" name="ultimaEducacion"></div>
+            <div><label for="provinciaUltimaEducacion">¿En qué provincia se encuentra la última institución educativa donde cursó?</label><br><input type="text" id="provinciaUltimaEducacion" name="provinciaUltimaEducacion"></div>
+            <div><label for="localidadUltimaEducacion">¿En qué localidad se encuentra la última institución educativa donde cursó?</label><br><input type="text" id="localidadUltimaEducacion" name="localidadUltimaEducacion"></div>
+        </fieldset>
+
+        <fieldset class="sector">
+            <legend>Materias</legend>
+            <div class="counter-row">
+                <label for="totalMaterias">Cuantas materias debe en TOTAL</label>
+                <div class="counter">
+                    <button type="button" id="totalMinus">−</button>
+                    <span id="totalDisplay">0</span>
+                    <button type="button" id="totalPlus">+</button>
+                </div>
+                <input type="hidden" id="totalMaterias" name="totalMaterias" value="0">
+            </div>
+            <div class="counter-row">
+                <label for="materiasRendirDisplay">Cuantas materias va a rendir en esta etapa</label>
+                <div class="counter">
+                    <button type="button" id="rendirMinus">−</button>
+                    <span id="rendirDisplay">0</span>
+                    <button type="button" id="rendirPlus">+</button>
+                </div>
+                <input type="hidden" id="materiasRendir" name="materiasRendir" value="0">
+            </div>
+                <!-- Selector de materias (área -> materia -> año) ocupa todo el renglón -->
+                <div class="subject-block">
+                    <label for="areaSelect">Anotar materia</label>
+                    <div class="subject-row pill">
+                        <select id="areaSelect" name="areaSelect">
+                            <option value="">-- Seleccione área --</option>
+                            <option value="01">01 - Matemática</option>
+                            <option value="02">02 - Lengua y Literatura</option>
+                            <option value="03">03 - Ciencias Sociales</option>
+                            <option value="04">04 - Ciencias Naturales</option>
+                            <option value="05">05 - Arte</option>
+                            <option value="06">06 - Idiomas</option>
+                        </select>
+
+                        <select id="materiaSelect" name="materiaSelect" disabled>
+                            <option value="">-- Seleccione materia --</option>
+                        </select>
+
+                        <select id="anioSelect" name="anioSelect" disabled>
+                            <option value="">-- Año --</option>
+                            <option value="1">1°</option>
+                            <option value="2">2°</option>
+                            <option value="3">3°</option>
+                            <option value="4">4°</option>
+                            <option value="5">5°</option>
+                            <option value="6">6°</option>
+                        </select>
+                    </div>
+                    <div class="subject-actions">
+                        <button type="button" id="addSubjectBtn">Agregar materia</button>
+                    </div>
+                    <div class="subject-status" id="subjectStatus" aria-live="polite"></div>
+                    <div class="subject-list" id="subjectList" aria-live="polite"></div>
+                </div>
+            </fieldset>
+    </form>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
